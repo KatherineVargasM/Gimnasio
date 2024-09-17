@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Config\ConexionBDD.cs" />
     <Compile Include="Config\ControlErrores.cs" />
+    <Compile Include="Controller\clasesController.cs" />
     <Compile Include="Controller\clientesController.cs" />
     <Compile Include="Controller\instructoresController.cs" />
     <Compile Include="Form1.cs">
@@ -61,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GimnasioDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\clasesModel.cs" />
     <Compile Include="Model\clientesModel.cs" />
     <Compile Include="Model\instructoresModel.cs" />
     <Compile Include="Program.cs" />
@@ -108,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Clases\frm_Clases.resx">
+      <DependentUpon>frm_Clases.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Clientes\frm_Clientes.resx">
       <DependentUpon>frm_Clientes.cs</DependentUpon>
     </EmbeddedResource>
