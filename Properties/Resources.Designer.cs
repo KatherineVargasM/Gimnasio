@@ -73,6 +73,16 @@ namespace Gimnasio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11111 {
+            get {
+                object obj = ResourceManager.GetObject("11111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _310818 {
             get {
                 object obj = ResourceManager.GetObject("310818", resourceCulture);
@@ -118,6 +128,26 @@ namespace Gimnasio.Properties {
             get {
                 object obj = ResourceManager.GetObject("Fitness Culturismo Material De Antecedentes de Pantalla Imagen para Descarga Grat" +
                         "uita - Pngtree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KSSSSSS {
+            get {
+                object obj = ResourceManager.GetObject("KSSSSSS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OOOOOOOOOOOOO {
+            get {
+                object obj = ResourceManager.GetObject("OOOOOOOOOOOOO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

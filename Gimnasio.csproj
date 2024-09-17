@@ -48,19 +48,52 @@
   <ItemGroup>
     <Compile Include="Config\ConexionBDD.cs" />
     <Compile Include="Config\ControlErrores.cs" />
+    <Compile Include="Controller\clientesController.cs" />
+    <Compile Include="Controller\instructoresController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GimnasioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GimnasioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\clientesModel.cs" />
+    <Compile Include="Model\instructoresModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Asistencias\frm_Asistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Asistencias\frm_Asistencias.Designer.cs">
+      <DependentUpon>frm_Asistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clases\frm_Clases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Clases\frm_Clases.Designer.cs">
+      <DependentUpon>frm_Clases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clientes\frm_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Clientes\frm_Clientes.Designer.cs">
+      <DependentUpon>frm_Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Instructores\frm_Instructores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Instructores\frm_Instructores.Designer.cs">
+      <DependentUpon>frm_Instructores.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -75,9 +108,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Clientes\frm_Clientes.resx">
+      <DependentUpon>frm_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Instructores\frm_Instructores.resx">
+      <DependentUpon>frm_Instructores.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="GimnasioDataSet.xsc">
+      <DependentUpon>GimnasioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GimnasioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GimnasioDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GimnasioDataSet.xss">
+      <DependentUpon>GimnasioDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,9 +159,15 @@
   <ItemGroup>
     <None Include="Resources\747305.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
+    <None Include="Resources\KSSSSSS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OOOOOOOOOOOOO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
