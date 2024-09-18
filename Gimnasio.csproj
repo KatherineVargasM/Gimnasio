@@ -76,6 +76,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GimnasioDataSet.cs">
+      <DependentUpon>GimnasioDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GimnasioDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -6,21 +6,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.53849cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.37974cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.42724cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.9cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -31,11 +31,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ID Asistencia</Value>
-                              <Style />
+                              <Value>Código</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -44,6 +49,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Gold</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -61,11 +67,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cliente Nombre</Value>
-                              <Style />
+                              <Value>Nombre</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
@@ -74,6 +85,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Gold</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -91,11 +103,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Clase Nombre</Value>
-                              <Style />
+                              <Value>Clase</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox8</rd:DefaultName>
@@ -104,6 +121,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Gold</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -122,10 +140,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Fecha</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox10</rd:DefaultName>
@@ -134,6 +157,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Gold</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -145,7 +169,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.9cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -157,10 +181,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ID_Asistencia.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ID_Asistencia</rd:DefaultName>
@@ -187,10 +215,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ClienteNombre.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ClienteNombre</rd:DefaultName>
@@ -217,10 +249,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ClaseNombre.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ClaseNombre</rd:DefaultName>
@@ -247,10 +283,14 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Fecha.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Fecha</rd:DefaultName>
@@ -291,9 +331,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.0287cm</Top>
-        <Left>1.94342cm</Left>
-        <Height>1.2cm</Height>
-        <Width>10cm</Width>
+        <Left>0.79009cm</Left>
+        <Height>1.8cm</Height>
+        <Width>13.34547cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -301,10 +341,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.4841in</Height>
+    <Height>1.47368in</Height>
     <Style />
   </Body>
-  <Width>5.32651in</Width>
+  <Width>5.88357in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -316,7 +356,7 @@
           <Value>reporticonforyourwebsitemobilepresentationandlogodesignfreevector</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.66169cm</Top>
-          <Left>1.39595cm</Left>
+          <Left>2.24262cm</Left>
           <Height>1.47354cm</Height>
           <Width>1.34125cm</Width>
           <Style>
@@ -342,7 +382,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox17</rd:DefaultName>
-          <Left>5.40067cm</Left>
+          <Left>8.76656cm</Left>
           <Height>0.6cm</Height>
           <Width>6.17771cm</Width>
           <ZIndex>1</ZIndex>
@@ -379,7 +419,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>1.03252cm</Top>
-          <Left>3.25755cm</Left>
+          <Left>4.44818cm</Left>
           <Height>0.78521cm</Height>
           <Width>6.65333cm</Width>
           <ZIndex>2</ZIndex>
@@ -425,7 +465,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
           <Top>0.97cm</Top>
-          <Left>1.94342cm</Left>
+          <Left>3.21342cm</Left>
           <Height>0.6cm</Height>
           <Width>8.55833cm</Width>
           <Style>
