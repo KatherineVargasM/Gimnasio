@@ -24,6 +24,8 @@ namespace Gimnasio {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class GimnasioDataSet : global::System.Data.DataSet {
         
+        private Reporte1DataTable tableReporte1;
+        
         private AsistenciasDataTable tableAsistencias;
         
         private ClasesDataTable tableClases;
@@ -34,9 +36,9 @@ namespace Gimnasio {
         
         private UsuariosDataTable tableUsuarios;
         
-        private global::System.Data.DataRelation relationFK__Asistenci__ID_Cl__2B3F6F97;
-        
         private global::System.Data.DataRelation relationFK__Asistenci__ID_Cl__2C3393D0;
+        
+        private global::System.Data.DataRelation relationFK__Asistenci__ID_Cl__2B3F6F97;
         
         private global::System.Data.DataRelation relationFK__Clases__ID_Instr__286302EC;
         
@@ -68,6 +70,9 @@ namespace Gimnasio {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Reporte1"] != null)) {
+                    base.Tables.Add(new Reporte1DataTable(ds.Tables["Reporte1"]));
+                }
                 if ((ds.Tables["Asistencias"] != null)) {
                     base.Tables.Add(new AsistenciasDataTable(ds.Tables["Asistencias"]));
                 }
@@ -99,6 +104,16 @@ namespace Gimnasio {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Reporte1DataTable Reporte1 {
+            get {
+                return this.tableReporte1;
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -218,6 +233,9 @@ namespace Gimnasio {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["Reporte1"] != null)) {
+                    base.Tables.Add(new Reporte1DataTable(ds.Tables["Reporte1"]));
+                }
                 if ((ds.Tables["Asistencias"] != null)) {
                     base.Tables.Add(new AsistenciasDataTable(ds.Tables["Asistencias"]));
                 }
@@ -266,6 +284,12 @@ namespace Gimnasio {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
+            this.tableReporte1 = ((Reporte1DataTable)(base.Tables["Reporte1"]));
+            if ((initTable == true)) {
+                if ((this.tableReporte1 != null)) {
+                    this.tableReporte1.InitVars();
+                }
+            }
             this.tableAsistencias = ((AsistenciasDataTable)(base.Tables["Asistencias"]));
             if ((initTable == true)) {
                 if ((this.tableAsistencias != null)) {
@@ -296,8 +320,8 @@ namespace Gimnasio {
                     this.tableUsuarios.InitVars();
                 }
             }
-            this.relationFK__Asistenci__ID_Cl__2B3F6F97 = this.Relations["FK__Asistenci__ID_Cl__2B3F6F97"];
             this.relationFK__Asistenci__ID_Cl__2C3393D0 = this.Relations["FK__Asistenci__ID_Cl__2C3393D0"];
+            this.relationFK__Asistenci__ID_Cl__2B3F6F97 = this.Relations["FK__Asistenci__ID_Cl__2B3F6F97"];
             this.relationFK__Clases__ID_Instr__286302EC = this.Relations["FK__Clases__ID_Instr__286302EC"];
         }
         
@@ -309,6 +333,8 @@ namespace Gimnasio {
             this.Namespace = "http://tempuri.org/GimnasioDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableReporte1 = new Reporte1DataTable();
+            base.Tables.Add(this.tableReporte1);
             this.tableAsistencias = new AsistenciasDataTable();
             base.Tables.Add(this.tableAsistencias);
             this.tableClases = new ClasesDataTable();
@@ -319,18 +345,24 @@ namespace Gimnasio {
             base.Tables.Add(this.tableInstructores);
             this.tableUsuarios = new UsuariosDataTable();
             base.Tables.Add(this.tableUsuarios);
-            this.relationFK__Asistenci__ID_Cl__2B3F6F97 = new global::System.Data.DataRelation("FK__Asistenci__ID_Cl__2B3F6F97", new global::System.Data.DataColumn[] {
-                        this.tableClientes.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
-                        this.tableAsistencias.ID_ClienteColumn}, false);
-            this.Relations.Add(this.relationFK__Asistenci__ID_Cl__2B3F6F97);
             this.relationFK__Asistenci__ID_Cl__2C3393D0 = new global::System.Data.DataRelation("FK__Asistenci__ID_Cl__2C3393D0", new global::System.Data.DataColumn[] {
                         this.tableClases.ID_ClaseColumn}, new global::System.Data.DataColumn[] {
                         this.tableAsistencias.ID_ClaseColumn}, false);
             this.Relations.Add(this.relationFK__Asistenci__ID_Cl__2C3393D0);
+            this.relationFK__Asistenci__ID_Cl__2B3F6F97 = new global::System.Data.DataRelation("FK__Asistenci__ID_Cl__2B3F6F97", new global::System.Data.DataColumn[] {
+                        this.tableClientes.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAsistencias.ID_ClienteColumn}, false);
+            this.Relations.Add(this.relationFK__Asistenci__ID_Cl__2B3F6F97);
             this.relationFK__Clases__ID_Instr__286302EC = new global::System.Data.DataRelation("FK__Clases__ID_Instr__286302EC", new global::System.Data.DataColumn[] {
                         this.tableInstructores.ID_InstructorColumn}, new global::System.Data.DataColumn[] {
                         this.tableClases.ID_InstructorColumn}, false);
             this.Relations.Add(this.relationFK__Clases__ID_Instr__286302EC);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeReporte1() {
+            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -419,6 +451,9 @@ namespace Gimnasio {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void Reporte1RowChangeEventHandler(object sender, Reporte1RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void AsistenciasRowChangeEventHandler(object sender, AsistenciasRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -432,6 +467,315 @@ namespace Gimnasio {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void UsuariosRowChangeEventHandler(object sender, UsuariosRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Reporte1DataTable : global::System.Data.TypedTableBase<Reporte1Row> {
+            
+            private global::System.Data.DataColumn columnID_Asistencia;
+            
+            private global::System.Data.DataColumn columnClienteNombre;
+            
+            private global::System.Data.DataColumn columnClaseNombre;
+            
+            private global::System.Data.DataColumn columnFecha;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1DataTable() {
+                this.TableName = "Reporte1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Reporte1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected Reporte1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_AsistenciaColumn {
+                get {
+                    return this.columnID_Asistencia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ClienteNombreColumn {
+                get {
+                    return this.columnClienteNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ClaseNombreColumn {
+                get {
+                    return this.columnClaseNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FechaColumn {
+                get {
+                    return this.columnFecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1Row this[int index] {
+                get {
+                    return ((Reporte1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Reporte1RowChangeEventHandler Reporte1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Reporte1RowChangeEventHandler Reporte1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Reporte1RowChangeEventHandler Reporte1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Reporte1RowChangeEventHandler Reporte1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddReporte1Row(Reporte1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1Row AddReporte1Row(string ClienteNombre, string ClaseNombre, System.DateTime Fecha) {
+                Reporte1Row rowReporte1Row = ((Reporte1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ClienteNombre,
+                        ClaseNombre,
+                        Fecha};
+                rowReporte1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReporte1Row);
+                return rowReporte1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1Row FindByID_Asistencia(int ID_Asistencia) {
+                return ((Reporte1Row)(this.Rows.Find(new object[] {
+                            ID_Asistencia})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Reporte1DataTable cln = ((Reporte1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Reporte1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID_Asistencia = base.Columns["ID_Asistencia"];
+                this.columnClienteNombre = base.Columns["ClienteNombre"];
+                this.columnClaseNombre = base.Columns["ClaseNombre"];
+                this.columnFecha = base.Columns["Fecha"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID_Asistencia = new global::System.Data.DataColumn("ID_Asistencia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Asistencia);
+                this.columnClienteNombre = new global::System.Data.DataColumn("ClienteNombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClienteNombre);
+                this.columnClaseNombre = new global::System.Data.DataColumn("ClaseNombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClaseNombre);
+                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_Asistencia}, true));
+                this.columnID_Asistencia.AutoIncrement = true;
+                this.columnID_Asistencia.AutoIncrementSeed = -1;
+                this.columnID_Asistencia.AutoIncrementStep = -1;
+                this.columnID_Asistencia.AllowDBNull = false;
+                this.columnID_Asistencia.ReadOnly = true;
+                this.columnID_Asistencia.Unique = true;
+                this.columnClienteNombre.AllowDBNull = false;
+                this.columnClienteNombre.MaxLength = 100;
+                this.columnClaseNombre.AllowDBNull = false;
+                this.columnClaseNombre.MaxLength = 100;
+                this.columnFecha.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1Row NewReporte1Row() {
+                return ((Reporte1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Reporte1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Reporte1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Reporte1RowChanged != null)) {
+                    this.Reporte1RowChanged(this, new Reporte1RowChangeEvent(((Reporte1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Reporte1RowChanging != null)) {
+                    this.Reporte1RowChanging(this, new Reporte1RowChangeEvent(((Reporte1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Reporte1RowDeleted != null)) {
+                    this.Reporte1RowDeleted(this, new Reporte1RowChangeEvent(((Reporte1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Reporte1RowDeleting != null)) {
+                    this.Reporte1RowDeleting(this, new Reporte1RowChangeEvent(((Reporte1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveReporte1Row(Reporte1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                GimnasioDataSet ds = new GimnasioDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Reporte1DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1892,6 +2236,65 @@ namespace Gimnasio {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class Reporte1Row : global::System.Data.DataRow {
+            
+            private Reporte1DataTable tableReporte1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Reporte1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableReporte1 = ((Reporte1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Asistencia {
+                get {
+                    return ((int)(this[this.tableReporte1.ID_AsistenciaColumn]));
+                }
+                set {
+                    this[this.tableReporte1.ID_AsistenciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ClienteNombre {
+                get {
+                    return ((string)(this[this.tableReporte1.ClienteNombreColumn]));
+                }
+                set {
+                    this[this.tableReporte1.ClienteNombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ClaseNombre {
+                get {
+                    return ((string)(this[this.tableReporte1.ClaseNombreColumn]));
+                }
+                set {
+                    this[this.tableReporte1.ClaseNombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Fecha {
+                get {
+                    return ((global::System.DateTime)(this[this.tableReporte1.FechaColumn]));
+                }
+                set {
+                    this[this.tableReporte1.FechaColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class AsistenciasRow : global::System.Data.DataRow {
             
             private AsistenciasDataTable tableAsistencias;
@@ -1959,23 +2362,23 @@ namespace Gimnasio {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientesRow ClientesRow {
-                get {
-                    return ((ClientesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Asistenci__ID_Cl__2B3F6F97"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Asistenci__ID_Cl__2B3F6F97"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClasesRow ClasesRow {
                 get {
                     return ((ClasesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Asistenci__ID_Cl__2C3393D0"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Asistenci__ID_Cl__2C3393D0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientesRow ClientesRow {
+                get {
+                    return ((ClientesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Asistenci__ID_Cl__2B3F6F97"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Asistenci__ID_Cl__2B3F6F97"]);
                 }
             }
             
@@ -2239,6 +2642,40 @@ namespace Gimnasio {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class Reporte1RowChangeEvent : global::System.EventArgs {
+            
+            private Reporte1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1RowChangeEvent(Reporte1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Reporte1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class AsistenciasRowChangeEvent : global::System.EventArgs {
             
             private AsistenciasRow eventRow;
@@ -2418,6 +2855,179 @@ namespace Gimnasio.GimnasioDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Reporte1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public Reporte1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Reporte1";
+            tableMapping.ColumnMappings.Add("ID_Asistencia", "ID_Asistencia");
+            tableMapping.ColumnMappings.Add("ClienteNombre", "ClienteNombre");
+            tableMapping.ColumnMappings.Add("ClaseNombre", "ClaseNombre");
+            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Gimnasio.Properties.Settings.Default.GimnasioConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        a.ID_Asistencia, c.Nombre AS ClienteNombre, cl.Nombre AS ClaseNombre, a.Fecha
+FROM            Asistencias AS a INNER JOIN
+                         Clientes AS c ON a.ID_Cliente = c.ID_Cliente INNER JOIN
+                         Clases AS cl ON a.ID_Clase = cl.ID_Clase";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(GimnasioDataSet.Reporte1DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual GimnasioDataSet.Reporte1DataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            GimnasioDataSet.Reporte1DataTable dataTable = new GimnasioDataSet.Reporte1DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class AsistenciasTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -2537,7 +3147,7 @@ namespace Gimnasio.GimnasioDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Asistencias] WHERE (([ID_Asistencia] = @Original_ID_Asistencia) AND ((@IsNull_ID_Cliente = 1 AND [ID_Cliente] IS NULL) OR ([ID_Cliente] = @Original_ID_Cliente)) AND ((@IsNull_ID_Clase = 1 AND [ID_Clase] IS NULL) OR ([ID_Clase] = @Original_ID_Clase)) AND ([Fecha] = @Original_Fecha))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Asistencias] WHERE (([ID_Asistencia] = @Original_ID_Asistencia) AND ((@IsNull_ID_Cliente = 1 AND [ID_Cliente] IS NULL) OR ([ID_Cliente] = @Original_ID_Cliente)) AND ((@IsNull_ID_Clase = 1 AND [ID_Clase] IS NULL) OR ([ID_Clase] = @Original_ID_Clase)) AND ([Fecha] = @Original_Fecha))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Asistencia", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Asistencia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2547,16 +3157,16 @@ namespace Gimnasio.GimnasioDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Asistencias] ([ID_Cliente], [ID_Clase], [Fecha]) VALUES (@ID_C" +
-                "liente, @ID_Clase, @Fecha);\r\nSELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha F" +
-                "ROM Asistencias WHERE (ID_Asistencia = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Asistencias] ([ID_Cliente], [ID_Clase], [Fecha]) VALUES (@ID_Cliente" +
+                ", @ID_Clase, @Fecha);\r\nSELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM As" +
+                "istencias WHERE (ID_Asistencia = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Clase", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Clase", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Asistencias] SET [ID_Cliente] = @ID_Cliente, [ID_Clase] = @ID_Clase, [Fecha] = @Fecha WHERE (([ID_Asistencia] = @Original_ID_Asistencia) AND ((@IsNull_ID_Cliente = 1 AND [ID_Cliente] IS NULL) OR ([ID_Cliente] = @Original_ID_Cliente)) AND ((@IsNull_ID_Clase = 1 AND [ID_Clase] IS NULL) OR ([ID_Clase] = @Original_ID_Clase)) AND ([Fecha] = @Original_Fecha));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Asistencias] SET [ID_Cliente] = @ID_Cliente, [ID_Clase] = @ID_Clase, [Fecha] = @Fecha WHERE (([ID_Asistencia] = @Original_ID_Asistencia) AND ((@IsNull_ID_Cliente = 1 AND [ID_Cliente] IS NULL) OR ([ID_Cliente] = @Original_ID_Cliente)) AND ((@IsNull_ID_Clase = 1 AND [ID_Clase] IS NULL) OR ([ID_Clase] = @Original_ID_Clase)) AND ([Fecha] = @Original_Fecha));
 SELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM Asistencias WHERE (ID_Asistencia = @ID_Asistencia)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2584,7 +3194,7 @@ SELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM Asistencias WHERE (ID_Asi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM dbo.Asistencias";
+            this._commandCollection[0].CommandText = "SELECT        Asistencias.*\r\nFROM            Asistencias";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2903,9 +3513,9 @@ SELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM Asistencias WHERE (ID_Asi
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Clases] WHERE (([ID_Clase] = @Original_ID_Clase) AND ([Nombre]" +
-                " = @Original_Nombre) AND ((@IsNull_ID_Instructor = 1 AND [ID_Instructor] IS NULL" +
-                ") OR ([ID_Instructor] = @Original_ID_Instructor)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Clases] WHERE (([ID_Clase] = @Original_ID_Clase) AND ([Nombre] = @Or" +
+                "iginal_Nombre) AND ((@IsNull_ID_Instructor = 1 AND [ID_Instructor] IS NULL) OR (" +
+                "[ID_Instructor] = @Original_ID_Instructor)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Clase", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Clase", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2913,15 +3523,15 @@ SELECT ID_Asistencia, ID_Cliente, ID_Clase, Fecha FROM Asistencias WHERE (ID_Asi
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Instructor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Instructor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Clases] ([Nombre], [ID_Instructor]) VALUES (@Nombre, @ID_Instr" +
-                "uctor);\r\nSELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = SC" +
-                "OPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Clases] ([Nombre], [ID_Instructor]) VALUES (@Nombre, @ID_Instructor)" +
+                ";\r\nSELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = SCOPE_ID" +
+                "ENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Instructor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Instructor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Clases] SET [Nombre] = @Nombre, [ID_Instructor] = @ID_Instructor WHERE (([ID_Clase] = @Original_ID_Clase) AND ([Nombre] = @Original_Nombre) AND ((@IsNull_ID_Instructor = 1 AND [ID_Instructor] IS NULL) OR ([ID_Instructor] = @Original_ID_Instructor)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Clases] SET [Nombre] = @Nombre, [ID_Instructor] = @ID_Instructor WHERE (([ID_Clase] = @Original_ID_Clase) AND ([Nombre] = @Original_Nombre) AND ((@IsNull_ID_Instructor = 1 AND [ID_Instructor] IS NULL) OR ([ID_Instructor] = @Original_ID_Instructor)));
 SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2946,7 +3556,7 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Clase, Nombre, ID_Instructor FROM dbo.Clases";
+            this._commandCollection[0].CommandText = "SELECT        Clases.*\r\nFROM            Clases";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3256,22 +3866,22 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Clientes] WHERE (([ID_Cliente] = @Original_ID_Cliente) AND ([N" +
-                "ombre] = @Original_Nombre))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Clientes] WHERE (([ID_Cliente] = @Original_ID_Cliente) AND ([Nombre]" +
+                " = @Original_Nombre))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Clientes] ([Nombre]) VALUES (@Nombre);\r\nSELECT ID_Cliente, Nom" +
-                "bre FROM Clientes WHERE (ID_Cliente = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Clientes] ([Nombre]) VALUES (@Nombre);\r\nSELECT ID_Cliente, Nombre FR" +
+                "OM Clientes WHERE (ID_Cliente = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Clientes] SET [Nombre] = @Nombre WHERE (([ID_Cliente] = @Original_I" +
-                "D_Cliente) AND ([Nombre] = @Original_Nombre));\r\nSELECT ID_Cliente, Nombre FROM C" +
-                "lientes WHERE (ID_Cliente = @ID_Cliente)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Clientes] SET [Nombre] = @Nombre WHERE (([ID_Cliente] = @Original_ID_Clie" +
+                "nte) AND ([Nombre] = @Original_Nombre));\r\nSELECT ID_Cliente, Nombre FROM Cliente" +
+                "s WHERE (ID_Cliente = @ID_Cliente)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3292,7 +3902,7 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Cliente, Nombre FROM dbo.Clientes";
+            this._commandCollection[0].CommandText = "SELECT        Clientes.*\r\nFROM            Clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3574,22 +4184,22 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Instructores] WHERE (([ID_Instructor] = @Original_ID_Instructo" +
-                "r) AND ([Nombre] = @Original_Nombre))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Instructores] WHERE (([ID_Instructor] = @Original_ID_Instructor) AND" +
+                " ([Nombre] = @Original_Nombre))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Instructor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Instructor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Instructores] ([Nombre]) VALUES (@Nombre);\r\nSELECT ID_Instruct" +
-                "or, Nombre FROM Instructores WHERE (ID_Instructor = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Instructores] ([Nombre]) VALUES (@Nombre);\r\nSELECT ID_Instructor, No" +
+                "mbre FROM Instructores WHERE (ID_Instructor = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Instructores] SET [Nombre] = @Nombre WHERE (([ID_Instructor] = @Ori" +
-                "ginal_ID_Instructor) AND ([Nombre] = @Original_Nombre));\r\nSELECT ID_Instructor, " +
-                "Nombre FROM Instructores WHERE (ID_Instructor = @ID_Instructor)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Instructores] SET [Nombre] = @Nombre WHERE (([ID_Instructor] = @Original_" +
+                "ID_Instructor) AND ([Nombre] = @Original_Nombre));\r\nSELECT ID_Instructor, Nombre" +
+                " FROM Instructores WHERE (ID_Instructor = @ID_Instructor)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Instructor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Instructor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3610,7 +4220,7 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Instructor, Nombre FROM dbo.Instructores";
+            this._commandCollection[0].CommandText = "SELECT        Instructores.*\r\nFROM            Instructores";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3893,23 +4503,23 @@ SELECT ID_Clase, Nombre, ID_Instructor FROM Clases WHERE (ID_Clase = @ID_Clase)"
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Usuarios] WHERE (([ID_Usuario] = @Original_ID_Usuario) AND ([U" +
-                "suario] = @Original_Usuario) AND ([Contrasenia] = @Original_Contrasenia))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Usuarios] WHERE (([ID_Usuario] = @Original_ID_Usuario) AND ([Usuario" +
+                "] = @Original_Usuario) AND ([Contrasenia] = @Original_Contrasenia))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Contrasenia", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contrasenia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuarios] ([Usuario], [Contrasenia]) VALUES (@Usuario, @Contra" +
-                "senia);\r\nSELECT ID_Usuario, Usuario, Contrasenia FROM Usuarios WHERE (ID_Usuario" +
-                " = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Usuarios] ([Usuario], [Contrasenia]) VALUES (@Usuario, @Contrasenia)" +
+                ";\r\nSELECT ID_Usuario, Usuario, Contrasenia FROM Usuarios WHERE (ID_Usuario = SCO" +
+                "PE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrasenia", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Usuarios] SET [Usuario] = @Usuario, [Contrasenia] = @Contrasenia WHERE (([ID_Usuario] = @Original_ID_Usuario) AND ([Usuario] = @Original_Usuario) AND ([Contrasenia] = @Original_Contrasenia));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Usuarios] SET [Usuario] = @Usuario, [Contrasenia] = @Contrasenia WHERE (([ID_Usuario] = @Original_ID_Usuario) AND ([Usuario] = @Original_Usuario) AND ([Contrasenia] = @Original_Contrasenia));
 SELECT ID_Usuario, Usuario, Contrasenia FROM Usuarios WHERE (ID_Usuario = @ID_Usuario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3933,7 +4543,7 @@ SELECT ID_Usuario, Usuario, Contrasenia FROM Usuarios WHERE (ID_Usuario = @ID_Us
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Usuario, Usuario, Contrasenia FROM dbo.Usuarios";
+            this._commandCollection[0].CommandText = "SELECT        Usuarios.*\r\nFROM            Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

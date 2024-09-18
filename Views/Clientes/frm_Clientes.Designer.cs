@@ -39,7 +39,6 @@
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gimnasioDataSet = new Gimnasio.GimnasioDataSet();
-            this.clientesTableAdapter = new Gimnasio.GimnasioDataSetTableAdapters.ClientesTableAdapter();
             this.lst_Clientes = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gimnasioDataSet)).BeginInit();
@@ -150,7 +149,6 @@
             // 
             // clientesTableAdapter
             // 
-            this.clientesTableAdapter.ClearBeforeFill = true;
             // 
             // lst_Clientes
             // 
@@ -204,7 +202,6 @@
         private System.Windows.Forms.TextBox txt_nombre;
         private GimnasioDataSet gimnasioDataSet;
         private System.Windows.Forms.BindingSource clientesBindingSource;
-        private GimnasioDataSetTableAdapters.ClientesTableAdapter clientesTableAdapter;
         private System.Windows.Forms.ListBox lst_Clientes;
     }
 }
